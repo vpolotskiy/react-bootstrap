@@ -10,6 +10,7 @@ const propTypes = {
   activePage: PropTypes.number,
   items: PropTypes.number,
   maxButtons: PropTypes.number,
+  listClassName: PropTypes.string,
 
   /**
    * When `true`, will display the first and the last button page when
@@ -79,7 +80,7 @@ const defaultProps = {
 
 class Pagination extends React.Component {
   renderPageButtons(
-    activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
+    activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps, listClassName
   ) {
     const pageButtons = [];
 
@@ -119,6 +120,7 @@ class Pagination extends React.Component {
           <PaginationButton
             key="ellipsisFirst"
             disabled
+            listClassName={listClassName}
             componentClass={buttonProps.componentClass}
           >
             <span aria-label="More">
@@ -186,6 +188,7 @@ class Pagination extends React.Component {
       onSelect,
       buttonComponentClass,
       className,
+      listClassName,
       ...props
     } = this.props;
 
@@ -227,7 +230,7 @@ class Pagination extends React.Component {
         )}
 
         {this.renderPageButtons(
-          activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps
+          activePage, items, maxButtons, boundaryLinks, ellipsis, buttonProps, listClassName
         )}
 
         {next && (

@@ -13,6 +13,7 @@ import createChainedFunction from './utils/createChainedFunction';
 const propTypes = {
   componentClass: elementType,
   className: PropTypes.string,
+  listClassName: PropTypes.string,
   eventKey: PropTypes.any,
   onSelect: PropTypes.func,
   disabled: PropTypes.bool,
@@ -52,6 +53,7 @@ class PaginationButton extends React.Component {
       disabled,
       onClick,
       className,
+      listClassName,
       style,
       ...props
     } = this.props;
@@ -65,7 +67,7 @@ class PaginationButton extends React.Component {
 
     return (
       <li
-        className={classNames(className, { active, disabled })}
+        className={classNames(className, listClassName, { active, disabled })}
         style={style}
       >
         <Component
